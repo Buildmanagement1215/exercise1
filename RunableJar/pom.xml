@@ -10,18 +10,22 @@
     <plugins>
       <!-- Pseudo Integrationstest, versucht das gebaute Artefakt auszuführen, 
         bricht derzeit noch ab -->
+        
       <plugin>
+      <!-- Koordinaten -->
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.4.0</version>
         <executions>
           <execution>
+          	<!-- mappe das goal "exec" in die Phase "verify" -->
             <phase>verify</phase>
             <goals>
               <goal>exec</goal>
             </goals>
           </execution>
         </executions>
+        <!-- Configuration für alle executions -->
         <configuration>
           <executable>java</executable>
           <arguments>
