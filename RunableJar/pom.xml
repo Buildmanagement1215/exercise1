@@ -18,6 +18,7 @@
         <version>1.4.0</version>
         <executions>
           <execution>
+          <id>verify-jar-is-executable</id>
           	<!-- mappe das goal "exec" in die Phase "verify" -->
             <phase>verify</phase>
             <goals>
@@ -38,7 +39,18 @@
       </plugin>
       
       <!-- Hier kommt die Lösung hin -->      
-      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>de.integrata.training.build.exercise.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
       
     </plugins>
   </build>
